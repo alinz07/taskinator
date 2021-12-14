@@ -2,7 +2,7 @@ var formE1 = document.querySelector("#task-form");
 
 var tasksToDoE1 = document.querySelector("#tasks-to-do");
 
-var createTaskHandler = function () {
+var createTaskHandler = function (event) {
 
     event.preventDefault();
 
