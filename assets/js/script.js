@@ -227,6 +227,24 @@ var saveTasks = function() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
+var loadTasks = function() {
+    //get task items from localstorage
+    tasks = localStorage.getItem("tasks");
+    console.log(tasks);
+
+    //convert tasks from the string format back into an array of objects
+    tasks = JSON.parse(tasks);
+
+    //iterates through a tasks array and creates task elements on the page from it
+    for (var i = 0; i < tasks.length; i++) {
+        tasks[i].id = taskIdCounter;
+        console.log(tasks[i]);
+        listItemEl=document.createElement("li");
+        listItemEl.className = "task-item";
+        listItemEl.setAttribute("data-task-id", tasks[i].id);
+    }
+};
+
 
 formEl.addEventListener('submit', taskFormHandler);
 
